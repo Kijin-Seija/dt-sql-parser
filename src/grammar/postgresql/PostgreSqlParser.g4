@@ -730,6 +730,10 @@ createstmt
     ) # columnCreateTable
     ;
 
+optdistributed
+    : KW_DISTRIBUTED KW_BY OPEN_PAREN column_list CLOSE_PAREN
+    ;
+
 opttemp
     : KW_TEMPORARY
     | KW_TEMP

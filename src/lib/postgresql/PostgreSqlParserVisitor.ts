@@ -103,6 +103,7 @@ import { Copy_generic_opt_argContext } from "./PostgreSqlParser.js";
 import { Copy_generic_opt_arg_listContext } from "./PostgreSqlParser.js";
 import { Copy_generic_opt_arg_list_itemContext } from "./PostgreSqlParser.js";
 import { ColumnCreateTableContext } from "./PostgreSqlParser.js";
+import { OptdistributedContext } from "./PostgreSqlParser.js";
 import { OpttempContext } from "./PostgreSqlParser.js";
 import { Table_column_listContext } from "./PostgreSqlParser.js";
 import { OpttableelementlistContext } from "./PostgreSqlParser.js";
@@ -1473,6 +1474,12 @@ export class PostgreSqlParserVisitor<Result> extends AbstractParseTreeVisitor<Re
      * @return the visitor result
      */
     visitColumnCreateTable?: (ctx: ColumnCreateTableContext) => Result;
+    /**
+     * Visit a parse tree produced by `PostgreSqlParser.optdistributed`.
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    visitOptdistributed?: (ctx: OptdistributedContext) => Result;
     /**
      * Visit a parse tree produced by `PostgreSqlParser.opttemp`.
      * @param ctx the parse tree

@@ -1,5 +1,5 @@
 {
-  "name": "dt-sql-parser",
+  "name": "dt-sql-parser-oushudb",
   "version": "4.0.1",
   "authors": "DTStack Corporation",
   "description": "SQL Parsers for BigData, built with antlr4",
