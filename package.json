@@ -1,6 +1,6 @@
 {
   "name": "dt-sql-parser-oushudb",
-  "version": "4.0.1",
+  "version": "4.0.2-0",
   "authors": "DTStack Corporation",
   "description": "SQL Parsers for BigData, built with antlr4",
   "keywords": [
@@ -54,11 +54,8 @@
     "typescript": "^5.0.4",
     "yargs-parser": "^21.1.1"
   },
-  "git repository": "https://github.com/DTStack/dt-sql-parser",
-  "repository": "https://github.com/DTStack/dt-sql-parser",
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
+  "git repository": "https://github.com/Kijin-Seija/dt-sql-parser",
+  "repository": "https://github.com/Kijin-Seija/dt-sql-parser",
   "dependencies": {
     "antlr4-c3": "3.3.7",
     "antlr4ng": "2.0.11"
