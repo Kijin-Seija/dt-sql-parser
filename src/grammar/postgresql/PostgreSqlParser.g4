@@ -722,12 +722,16 @@ copy_generic_opt_arg_list_item
     ;
 
 createstmt
-    : KW_CREATE opttemp? KW_TABLE opt_if_not_exists? table_name_create (
-        OPEN_PAREN table_column_list? CLOSE_PAREN optinherit? optpartitionspec? table_access_method_clause? optwith? oncommitoption? opttablespace?
+    : create_table_clause opt_if_not_exists? table_name_create (
+        OPEN_PAREN table_column_list? CLOSE_PAREN optinherit? optpartitionspec? table_access_method_clause? optwith? oncommitoption? opttablespace? optdistributed?
         | KW_OF any_name opttypedtableelementlist? optpartitionspec? table_access_method_clause? optwith? oncommitoption? opttablespace?
         | KW_PARTITION KW_OF qualified_name opttypedtableelementlist? partitionboundspec optpartitionspec? table_access_method_clause? optwith?
             oncommitoption? opttablespace?
     ) # columnCreateTable
+    ;
+
+create_table_clause
+    : KW_CREATE opttemp? KW_WRITABLE? KW_EXTERNAL? KW_TABLE
     ;
 
 optdistributed
@@ -1001,7 +1005,7 @@ alterstatsstmt
     ;
 
 createasstmt
-    : KW_CREATE opttemp? KW_TABLE opt_if_not_exists? create_as_target KW_AS selectstmt opt_with_data? # queryCreateTable
+    : create_table_clause opt_if_not_exists? create_as_target KW_AS selectstmt opt_with_data? # queryCreateTable
     ;
 
 create_as_target
@@ -2842,7 +2846,7 @@ preparablestmt
 
 executestmt
     : KW_EXECUTE name execute_param_clause?
-    | KW_CREATE opttemp? KW_TABLE opt_if_not_exists? create_as_target KW_AS KW_EXECUTE name execute_param_clause? opt_with_data?
+    | create_table_clause opt_if_not_exists? create_as_target KW_AS KW_EXECUTE name execute_param_clause? opt_with_data?
     ;
 
 execute_param_clause
