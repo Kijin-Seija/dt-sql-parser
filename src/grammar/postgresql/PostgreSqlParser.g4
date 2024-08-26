@@ -723,11 +723,21 @@ copy_generic_opt_arg_list_item
 
 createstmt
     : create_table_clause opt_if_not_exists? table_name_create (
-        OPEN_PAREN table_column_list? CLOSE_PAREN optinherit? optpartitionspec? table_access_method_clause? optwith? oncommitoption? opttablespace? optdistributed?
+        OPEN_PAREN table_column_list? CLOSE_PAREN create_table_options*
         | KW_OF any_name opttypedtableelementlist? optpartitionspec? table_access_method_clause? optwith? oncommitoption? opttablespace?
         | KW_PARTITION KW_OF qualified_name opttypedtableelementlist? partitionboundspec optpartitionspec? table_access_method_clause? optwith?
             oncommitoption? opttablespace?
     ) # columnCreateTable
+    ;
+
+create_table_options
+    : optinherit
+    | optpartitionspec
+    | table_access_method_clause
+    | optwith
+    | oncommitoption
+    | opttablespace
+    | optdistributed
     ;
 
 create_table_clause

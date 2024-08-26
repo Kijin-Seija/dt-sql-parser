@@ -103,6 +103,7 @@ import { Copy_generic_opt_argContext } from "./PostgreSqlParser.js";
 import { Copy_generic_opt_arg_listContext } from "./PostgreSqlParser.js";
 import { Copy_generic_opt_arg_list_itemContext } from "./PostgreSqlParser.js";
 import { ColumnCreateTableContext } from "./PostgreSqlParser.js";
+import { Create_table_optionsContext } from "./PostgreSqlParser.js";
 import { Create_table_clauseContext } from "./PostgreSqlParser.js";
 import { OptdistributedContext } from "./PostgreSqlParser.js";
 import { OpttempContext } from "./PostgreSqlParser.js";
@@ -1854,6 +1855,16 @@ export class PostgreSqlParserListener implements ParseTreeListener {
      * @param ctx the parse tree
      */
     exitColumnCreateTable?: (ctx: ColumnCreateTableContext) => void;
+    /**
+     * Enter a parse tree produced by `PostgreSqlParser.create_table_options`.
+     * @param ctx the parse tree
+     */
+    enterCreate_table_options?: (ctx: Create_table_optionsContext) => void;
+    /**
+     * Exit a parse tree produced by `PostgreSqlParser.create_table_options`.
+     * @param ctx the parse tree
+     */
+    exitCreate_table_options?: (ctx: Create_table_optionsContext) => void;
     /**
      * Enter a parse tree produced by `PostgreSqlParser.create_table_clause`.
      * @param ctx the parse tree
